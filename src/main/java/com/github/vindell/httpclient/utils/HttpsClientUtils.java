@@ -34,13 +34,6 @@ public abstract class HttpsClientUtils extends HttpClientUtils{
      */
     protected static HttpClientConnectionManager unsafeSSLConnectionManager =  null;
     
-    static {
-    	if(config.isUserManager()){
-    		
-    		unsafeSSLConnectionManager =  HttpClientConnectionManagerBuilder.getInstance(config).getUnsafeSSLConnectionManager();
-		}
-    }
-    
 	 /**
 	  * 
 	  * @description	： 使用Apache HttpClient 组件使用Get方式的访问URL
@@ -66,7 +59,7 @@ public abstract class HttpsClientUtils extends HttpClientUtils{
 	 * @throws IOException
 	 */
 	public static <T> T httpsRequestWithGet(String baseURL, Map<String, Object> paramsMap,AbstractResponseHandler<T> handler) throws  IOException {
-		return httpsRequestWithGet(baseURL, paramsMap, config.getCharset(),handler);
+		return httpsRequestWithGet(baseURL, paramsMap, "" ,handler);
 	}
 	
 	/**
@@ -130,7 +123,7 @@ public abstract class HttpsClientUtils extends HttpClientUtils{
 	 * @throws IOException
 	 */
 	public static <T> T httpsRequestWithPost(String baseURL,Map<String, Object> paramsMap,AbstractResponseHandler<T> handler) throws IOException {
-		return httpsRequestWithPost(baseURL, paramsMap, config.getCharset(),handler);
+		return httpsRequestWithPost(baseURL, paramsMap,  "" ,handler);
 	}
 	
 	/**

@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import java.security.KeyStore;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.entity.GzipCompressingEntity;
@@ -17,15 +18,13 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
-import com.github.vindell.httpclient.connection.HttpClientConnectionManagerBuilder;
-import com.github.vindell.httpclient.handler.response.AbstractResponseHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
 
+import com.github.vindell.httpclient.HttpClientConnectionManagerBuilder;
+import com.github.vindell.httpclient.handler.response.AbstractResponseHandler;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
